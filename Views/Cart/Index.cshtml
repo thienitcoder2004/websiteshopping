@@ -1,0 +1,77 @@
+﻿<section class="container py-5">
+    <!-- Breadcrumb -->
+    <div class="mb-4">
+        <h2 class="fw-bold">Cart</h2>
+        <div class="d-flex align-items-center gap-2">
+            <span class="text-danger fw-semibold">① Shopping Cart</span>
+            <span class="text-muted">›</span>
+            <span class="text-secondary">② Checkout details</span>
+            <span class="text-muted">›</span>
+            <span class="text-secondary">③ Order Complete</span>
+        </div>
+    </div>
+
+    <!-- Cart Updated Alert -->
+    <div class="alert alert-light border d-flex align-items-center" role="alert">
+        <i class="fas fa-check-circle text-success me-2"></i> Cart updated.
+    </div>
+
+    <!-- Cart Table and Totals -->
+    <div class="row">
+        <div class="col-lg-8">
+            <table class="table table-bordered align-middle text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th style="width: 150px;">Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="d-flex align-items-center gap-3">
+                            <button class="btn btn-sm btn-light border"><i class="fas fa-times"></i></button>
+                            <img src="~/images/product/purple.png" alt="Product" width="60" height="60">
+                            <div class="text-start">
+                                <strong>Essential Polos</strong><br>
+                                <small class="text-muted">Medium, Purple</small>
+                            </div>
+                        </td>
+                        <td>₹80.00</td>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <button class="btn btn-outline-secondary">-</button>
+                                <input type="text" class="form-control text-center" value="1">
+                                <button class="btn btn-outline-secondary">+</button>
+                            </div>
+                        </td>
+                        <td>₹80.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cart Totals -->
+        <div class="col-lg-4">
+            <div class="border p-4 bg-light-subtle">
+                <h4 class="fw-bold">Cart totals</h4>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <span>Subtotal</span>
+                    <span>₹80.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Total</span>
+                    <span>₹80.00</span>
+                </div>
+
+                <div class="mb-3">
+                    <small class="text-muted">Have a coupon?</small>
+                </div>
+
+                <button class="btn btn-danger w-100 rounded-pill py-2 fw-bold">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+    </div>
+</section>
