@@ -1,4 +1,23 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+function setMainImageFromThumbnail(thumbnailElement) {
+    const mainProductImage = document.getElementById("mainProductImage");
+    const allThumbnails = document.querySelectorAll(".img-thumbnail");
 
-// Write your JavaScript code.
+    mainProductImage.src = thumbnailElement.src;
+
+    allThumbnails.forEach(img => img.classList.remove("border-danger"));
+    thumbnailElement.classList.add("border-danger");
+}
+
+function incrementQuantity() {
+    const quantityInput = document.getElementById("productQuantity");
+    const currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+}
+
+function decrementQuantity() {
+    const quantityInput = document.getElementById("productQuantity");
+    const currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+    }
+}

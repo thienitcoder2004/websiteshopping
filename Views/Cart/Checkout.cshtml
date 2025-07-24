@@ -1,0 +1,142 @@
+﻿<section class="p-40">
+    <div class="container pt-50 pb-50">
+        <div class="mb-4">
+            <h2 class="fw-bold">Cart</h2>
+            <div class="d-flex align-items-center gap-2">
+                <span class="text-secondary">① Shopping Cart</span>
+                <span class="text-muted">›</span>
+                <span class="text-danger fw-semibold">② Checkout details</span>
+                <span class="text-muted">›</span>
+                <span class="text-secondary">③ Order Complete</span>
+            </div>
+        </div>
+        <form method="post" action="/Checkout/PlaceOrder">
+            <div class="row">
+                <!-- Left: Customer Information -->
+                <div class="col-md-7">
+                    <div class="bg-white border rounded p-4 shadow-sm">
+                        <h5 class="fw-bold text-uppercase mb-3">Shipping Information</h5>
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="FullName" placeholder="Recipient's full name" required>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" name="Phone" placeholder="Contact phone number" required>
+                        </div>
+
+                        <!-- Delivery Type -->
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="DeliveryType" id="homeDelivery" checked>
+                                <label class="form-check-label" for="homeDelivery">
+                                    Deliver to home/office/post office
+                                </label>
+                            </div>
+                            <div class="form-text text-muted small">
+                                * Currently, the system still uses province and district names before recent administrative changes (63 provinces).<br>
+                                Please enter the correct information for automatic matching.
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <select class="form-select mb-2" name="Province">
+                                <option>- Select Province/City -</option>
+                                <option>Ho Chi Minh City</option>
+                                <option>Hanoi</option>
+                                <option>Da Nang</option>
+                            </select>
+                            <select class="form-select mb-2" name="District">
+                                <option>- Select District -</option>
+                            </select>
+                            <select class="form-select mb-2" name="Ward">
+                                <option>- Select Ward/Commune/Town -</option>
+                            </select>
+                            <input type="text" class="form-control" name="StreetAddress" placeholder="House number, street name" />
+                        </div>
+
+                        <!-- Note -->
+                        <div class="mb-3">
+                            <label class="form-label">Note</label>
+                            <textarea class="form-control" name="Note" rows="3" placeholder="Any special delivery notes"></textarea>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="mb-3">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="PaymentMethod" id="cod" checked>
+                                <label class="form-check-label" for="cod">
+                                    <img src="https://img.icons8.com/ios-glyphs/24/000000/cash-on-delivery.png" class="me-2" />
+                                    Pay on delivery (COD)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="PaymentMethod" id="momo">
+                                <label class="form-check-label" for="momo">
+                                    <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" width="25" class="me-2" />
+                                    Pay with MoMo wallet
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Terms Agreement -->
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                I have read and agree to the website's general terms and conditions.
+                            </label>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold text-uppercase">
+                            Place Order: Deliver & Collect Payment On-site
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Order Summary -->
+                <div class="col-md-5">
+                    <div class="border p-4 bg-light-subtle mb-4">
+                        <h5 class="fw-bold">Your Order</h5>
+                        <hr />
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th class="text-end">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="~/images/product/purple.png" width="50" class="me-2" />
+                                        <span>Essential Polos - Medium, Purple × 1</span>
+                                    </td>
+                                    <td class="text-end">₹80.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-semibold">Subtotal</td>
+                                    <td class="text-end">₹80.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Total</td>
+                                    <td class="text-end fw-bold">₹80.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Place Order Button (English version) -->
+                    <button type="submit" class="btn btn-danger w-100 mt-4 py-2 fw-bold rounded-pill">
+                        <i class="fas fa-lock me-2"></i>PLACE ORDER ₹80.00
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

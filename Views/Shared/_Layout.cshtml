@@ -3,48 +3,172 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - websiteshopping</title>
-    <script type="importmap"></script>
+    <title>Cửa Hàng Thời Trang</title>
+    <link rel="icon" type="image/png" href="https://websitedemos.net/clothing-store-04/wp-content/uploads/sites/1538/2025/05/header-logo.svg" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/websiteshopping.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">websiteshopping</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+    <div id="globalPageLoadingSpinner"
+         style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background-color: rgba(255, 255, 255, 0.8); z-index: 9999; display: flex;
+                align-items: center; justify-content: center;">
+        <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <header class="d-flex justify-content-center align-items-center" style="height: 80px;">
+        <div class="container">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="https://websitedemos.net/clothing-store-04/wp-content/uploads/sites/1538/2025/05/header-logo.svg" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center align-items-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"><a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Shop" ? "active" : "")"><a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Shop</a></li>
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Blog" ? "active" : "")"><a class="nav-link text-dark" asp-controller="Blog" asp-action="Index">Blog</a></li>
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "About" ? "active" : "")"><a class="nav-link text-dark" asp-controller="About" asp-action="Index">About</a></li>
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Career" ? "active" : "")"><a class="nav-link text-dark" asp-controller="Career" asp-action="Index">Careers</a></li>
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "FAQ" ? "active" : "")"><a class="nav-link text-dark" asp-controller="FAQ" asp-action="Index">FAQ's</a></li>
+                            <li class="nav-item px-3 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Contact" ? "active" : "")"><a class="nav-link text-dark" asp-controller="Contact" asp-action="Index">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>hello</div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="bg-black">
+        <div class="container" style="height:50px;">
+            <h4 class="text-white text-center fw-medium fs-16 pt-3">Get 15% off on your first order</h4>
+        </div>
+    </nav>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="text-white pt-5" style="background-color: #000;">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-12 col-md-3">
+                    <h5 class="fw-bold fs-24">
+                        <img style="height: 50px;" src="https://websitedemos.net/clothing-store-04/wp-content/uploads/sites/1538/2025/05/header-logo.svg" />
+                    </h5>
+                    <p class="mt-2 fs-18">Classic looks for Men,<br>Women & Kids.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-linkedin"></i>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold fs-18">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Home</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Shop</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold fs-18">Shop</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Mens Wear</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Womens Wear</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Kids Wear</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h6 class="fw-bold fs-18">Help</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none fs-18">FAQ’s</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Return Policy</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Order Status</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Shipping & Delivery</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6 class="fw-bold fs-18">My Profile</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none fs-18">My Account</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Track Order</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">My Cart</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-18">Order History</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - websiteshopping - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <hr class="my-4 border-secondary">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pb-4">
+                <p class="mb-2 mb-md-0 small fs-16">Copyright © 2025 Clothing Store All rights reserved</p>
+                <div class="d-flex gap-2">
+                    <img width="272" height="48" src="https://websitedemos.net/clothing-store-04/wp-content/uploads/sites/1538/2025/05/payments.svg" alt="">
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- JS Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        // Hiện loading
+        function showGlobalPageLoadingSpinner() {
+            const spinner = document.getElementById("globalPageLoadingSpinner");
+            if (spinner) spinner.style.display = "flex";
+        }
+
+        // Ẩn loading
+        function hideGlobalPageLoadingSpinner() {
+            const spinner = document.getElementById("globalPageLoadingSpinner");
+            if (spinner) spinner.style.display = "none";
+        }
+
+        // Tự động hiển thị khi submit form
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("form").forEach(form => {
+                form.addEventListener("submit", function () {
+                    showGlobalPageLoadingSpinner();
+                });
+            });
+
+            // Khi click link <a href="...">
+            document.querySelectorAll("a").forEach(link => {
+                const href = link.getAttribute("href");
+                if (href && !href.startsWith("#") && !href.startsWith("javascript:")) {
+                    link.addEventListener("click", function (e) {
+                        const isExternal = link.target === "_blank" || href.startsWith("http");
+                        if (!isExternal) {
+                            showGlobalPageLoadingSpinner();
+                        }
+                    });
+                }
+            });
+        });
+
+        // Khi tải lại xong thì tự động ẩn (trong trường hợp view load lại)
+        window.addEventListener("pageshow", function () {
+            hideGlobalPageLoadingSpinner();
+        });
+    </script>
+
+
 </body>
 </html>
