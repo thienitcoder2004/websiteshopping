@@ -76,6 +76,12 @@ a {
 }
 
 /* ------------------    Home ------------------*/
+.navbar-nav .active > .nav-link {
+    font-weight: bold;
+    color: var(--text-hover);
+    border-bottom: 2px solid #d9230f;
+}
+
 .home-navigation {
     background-image: url('/images/home-hero-bg.png');
     background-position: center center;
